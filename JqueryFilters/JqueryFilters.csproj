@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="jQuery" Version="3.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Tablesorter" Version="2.25.4" />
+    <PackageReference Include="Twitter.Typeahead.MVC.Model" Version="1.0.7" />
   </ItemGroup>
 
 </Project>

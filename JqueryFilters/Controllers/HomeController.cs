@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using JqueryFilters.Factory;
 using Microsoft.AspNetCore.Mvc;
 using JqueryFilters.Models;
 
@@ -27,6 +28,12 @@ namespace JqueryFilters.Controllers
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        public IActionResult Applicant()
+        {
+            var model = ApplicantFactory.GetApplicantList();
+            return View(model);
         }
 
         public IActionResult Privacy()

@@ -35,3 +35,17 @@ body {
         display: none;
     }
 }
+
+
+.hidden {
+    display: none;
+}
+
+.tablesorter-filter-row .disabled {
+    display: none;
+}
+
+.tablesorter .filtered {
+    display: none;
+}
+

@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNetCore.Identity.UI.Services
+@model IEnumerable<JqueryFilters.Models.ApplicantModel>
+
+@{
+    ViewData["Title"] = "Applicant";
+}
+
+<h2>Applicant</h2>
+
+Provider :
+<input type="search" class="search filter-select" data-column="6" /><br/>
+<label><input type="checkbox" value="Offered"  class="searchStatus" />Offered</label><br />
+<label><input type="checkbox" value="OfferAccepted"  class="searchStatus"/>Offer Accepted</label><br />
+<label><input type="checkbox" value="OffereRejected"  class="searchStatus"/>Offere Rejected</label><br />
+
+<table class="tablesorter">
+    <thead>
+        <tr>
+            <th data-placeholder="First name">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th data-placeholder="Last name">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th data-placeholder="date last updated">
+                @Html.DisplayNameFor(model => model.DateModified)
+            </th>
+            <th data-placeholder="applicant staus">
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+
+
+            <th data-placeholder="no of applications">Applicant count</th>
+            <th  class="hidden"></th>
+            <th  class="hidden"></th>
+            <th  class="hidden"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @item.Applications.Count()
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+            @foreach (var application in item.Applications)
+            {
+                
+        <tr class="tablesorter-childRow">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@application.Id.ToString()</td>
+            <td class="filter-match">@application.ProviderName</td>
+            <td class="filter-match">@application.Status</td>
+        </tr>
+            }
+
+        }
+    </tbody>
+</table>
+
